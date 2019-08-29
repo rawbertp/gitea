@@ -15,20 +15,20 @@ import (
 
 func addIssueDependencies(x *xorm.Engine) (err error) {
 
-	type IssueDependency struct {
-		ID           int64     `xorm:"pk autoincr"`
-		UserID       int64     `xorm:"NOT NULL"`
-		IssueID      int64     `xorm:"NOT NULL"`
-		DependencyID int64     `xorm:"NOT NULL"`
-		Created      time.Time `xorm:"-"`
-		CreatedUnix  int64     `xorm:"created"`
-		Updated      time.Time `xorm:"-"`
-		UpdatedUnix  int64     `xorm:"updated"`
-	}
+	// type IssueDependency struct {
+	// 	ID           int64     `xorm:"pk autoincr"`
+	// 	UserID       int64     `xorm:"NOT NULL"`
+	// 	IssueID      int64     `xorm:"NOT NULL"`
+	// 	DependencyID int64     `xorm:"NOT NULL"`
+	// 	Created      time.Time `xorm:"-"`
+	// 	CreatedUnix  int64     `xorm:"created"`
+	// 	Updated      time.Time `xorm:"-"`
+	// 	UpdatedUnix  int64     `xorm:"updated"`
+	// }
 
-	if err = x.Sync(new(IssueDependency)); err != nil {
-		return fmt.Errorf("Error creating issue_dependency_table column definition: %v", err)
-	}
+	// if err = x.Sync(new(IssueDependency)); err != nil {
+	// 	return fmt.Errorf("Error creating issue_dependency_table column definition: %v", err)
+	// }
 
 	// Update Comment definition
 	// This (copied) struct does only contain fields used by xorm as the only use here is to update the database
